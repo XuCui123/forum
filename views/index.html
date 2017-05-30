@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{env.title}}</title>
+  <link rel="stylesheet" href="{{env.staticRoot}}/index.css">
+</head>
+<body>
+  <div id="root"></div>
+  {% if user %}
+  <script type="text/javascript">
+    window.IS_LOGIN = true;
+    window.USER = {{user|dump|safe}};
+  </script>
+  {% endif %}
+  <script src="{{env.staticRoot}}/index.js"></script>
+</body>
+</html>

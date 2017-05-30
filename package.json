@@ -1,0 +1,43 @@
+{
+  "name": "forum",
+  "version": "1.0.0",
+  "description": "forum web",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run build && node app/index.js",
+    "build": "rimraf app && babel src --out-dir app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/XuCui123/forum.git"
+  },
+  "keywords": [
+    "forum",
+    "koa",
+    "mysql",
+    "vue"
+  ],
+  "author": "xucui",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/XuCui123/forum/issues"
+  },
+  "homepage": "https://github.com/XuCui123/forum",
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "koa": "^2.2.0",
+    "koa-bodyparser": "^4.2.0",
+    "koa-logger": "^3.0.0",
+    "koa-orm": "^2.0.0",
+    "koa-router": "^7.2.0",
+    "koa-session": "^5.0.0",
+    "koa-view": "^2.1.0",
+    "mysql": "^2.13.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-env": "^1.5.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "rimraf": "^2.6.1"
+  }
+}
