@@ -2,6 +2,7 @@ import Router from 'koa-router';
 import * as home from './controllers/home';
 import * as user from './controllers/user';
 import * as topic from './controllers/topic';
+import * as reply from './controllers/reply';
 import config from './config';
 
 export default (app) => {
@@ -18,6 +19,8 @@ export default (app) => {
   router.get('/topics', topic.list);
   router.get('/topics/:id', topic.item);
   router.post('/topics', user.auth, topic.add);
+  router.get('/topics/:topicId/replies', reply.list);
+  router.post('/topics/:topicId/replies', reply.add);
 
   app.use(async (ctx, next) => {
     ctx.state.env = config.env;
