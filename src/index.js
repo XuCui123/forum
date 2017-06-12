@@ -7,6 +7,7 @@ import view from 'koa-view';
 import chalk from 'chalk';
 import config from './config';
 import router from './router';
+import error from './middlewares/error';
 
 const app = new Koa();
 
@@ -15,8 +16,10 @@ app.use(logger());
 app.use(bodyParser());
 app.use(session(config.session, app));
 app.use(view(__dirname + '/../views'));
+app.use(error());
 
 const orm = ORM(config.database);
+app.orm = orm;
 app.use(orm.middleware);
 
 /*orm.database().sync({

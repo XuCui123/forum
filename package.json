@@ -5,7 +5,19 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run build && node app/index.js",
-    "build": "rimraf app && babel src --out-dir app"
+    "build": "rimraf app && babel src --out-dir app",
+    "test": "NODE_ENV=test nyc mocha --no-timeouts",
+    "report": "nyc report --reporter=html"
+  },
+  "nyc": {
+    "include": [
+      "src/**/*.js"
+    ],
+    "require": [
+      "babel-register"
+    ],
+    "sourceMap": false,
+    "instrument": false
   },
   "repository": {
     "type": "git",
@@ -36,8 +48,14 @@
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
+    "babel-plugin-istanbul": "^4.1.4",
     "babel-preset-env": "^1.5.1",
     "babel-preset-stage-2": "^6.24.1",
+    "babel-register": "^6.24.1",
+    "chai": "^4.0.2",
+    "chai-http": "^3.0.0",
+    "mocha": "^3.4.2",
+    "nyc": "^11.0.2",
     "rimraf": "^2.6.1"
   }
 }

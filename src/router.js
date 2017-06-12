@@ -13,6 +13,8 @@ export default (app) => {
   router.get('/register', home.main);
   router.get('/topic/create', user.auth, home.main);
   router.get('/topic/:id', home.main);
+  router.get('/user/:id', home.main);
+  router.get('/user/:id/topics', home.main);
   router.get('/logout', user.logout);
   router.post('/login', user.login);
   router.post('/register', user.register);
@@ -21,6 +23,9 @@ export default (app) => {
   router.post('/topics', user.auth, topic.add);
   router.get('/topics/:topicId/replies', reply.list);
   router.post('/topics/:topicId/replies', reply.add);
+  router.get('/users/:id', user.item);
+  router.get('/users/:id/topics', user.topics);
+
 
   app.use(async (ctx, next) => {
     ctx.state.env = config.env;
